@@ -1,30 +1,38 @@
 import java.util.Locale;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
 
 public class ProcessoSeletivo {
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
         Locale.setDefault(Locale.US);
-        //selecaoCanditados();
-        imprimirSelecionados();
+        String[] candidatos = {"FELIPE", "MARCIA", "JULIA", "PAULO", "JOAQUIM"};
 
-//        Candidato candidato = new Candidato();
-//
-//        System.out.println("Digite o nome do candidato: ");
-//        candidato.nome = sc.nextLine();
-//
-//        System.out.println("Digite a idade do candidato: ");
-//        candidato.idade = sc.nextInt();
-//
-//        System.out.println("Digite o salário pretendido: ");
-//        double salario = sc.nextDouble();
-//
-//        candidato.verificarSalario(salario);
-//        System.out.println("Candidato: " + candidato.nome + ", Idade: " + candidato.idade);
+        for (String candidato : candidatos) {
+            entrandoEmContato(candidato);
+        }
 
+    }
+    static void entrandoEmContato(String candidato) {
+        int tentativasRealizadas = 1;
+        boolean continuarTentando = true;
+        boolean atendeu = false;
+
+        do{
+            atendeu = atender();
+            continuarTentando =!atendeu;
+            if(continuarTentando) {
+                tentativasRealizadas++;
+            } else {
+                System.out.println("CONTATO REALIZADO COM SUCESSO");
+            }
+
+        } while(continuarTentando && tentativasRealizadas <3);
+            if(atendeu)
+                System.out.println("CONSEGUIMOS CONTATO COM O " + candidato + "NA " + tentativasRealizadas);
+            else
+                System.out.println("NÃO CONSEGUIMOS CONTATO COM " + candidato + ", NÚMERO MAXIMO DE TENTATIVAS " + tentativasRealizadas + " REALIZADAS");
     }
 
     static void imprimirSelecionados() {
@@ -66,7 +74,15 @@ public class ProcessoSeletivo {
         }
     }
 
+    static boolean atender() {
+        return new Random().nextInt(3)==1;
+    }
+
     static Double valorAleatorio() {
         return ThreadLocalRandom.current().nextDouble(1800, 2200);
+    }
+
+    static int valorAleatorioLigacao() {
+        return ThreadLocalRandom.current().nextInt(1, 3);
     }
 }
