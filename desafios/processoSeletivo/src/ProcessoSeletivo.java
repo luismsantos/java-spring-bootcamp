@@ -25,30 +25,31 @@ public class ProcessoSeletivo {
 
     }
 
-     static void selecaoCanditados() {
-         String[] candidatos = {"FELIPE", "MARCIA", "JULIA", "PAULO", "JOAQUIM", "LUIS", "JOSÉ", "MARCELO", "MACIEL", "CASIMIRO", "GABI"};
+    static void selecaoCanditados() {
+        String[] candidatos = {"FELIPE", "MARCIA", "JULIA", "PAULO", "JOAQUIM", "LUIS", "JOSÉ", "MARCELO", "MACIEL", "CASIMIRO", "GABI"};
 
-         int candidatosSelecionados = 0;
-         int candidatosAtual = 0; // i do array
-         double salarioBase = 2000.0;
+        int candidatosSelecionados = 0;
+        int candidatosAtual = 0; // i do array
+        double salarioBase = 2000.0;
 
-         while(candidatosSelecionados < 5) {
-             String candidato = candidatos[candidatosAtual];
-             double salarioPretendido = valorAleatorio();
+        while(candidatosSelecionados < 5 && candidatosAtual < candidatos.length) {
+            String candidato = candidatos[candidatosAtual];
+            double salarioPretendido = valorAleatorio();
 
-             System.out.println("o candidato " + candidato + " Solicitou este valor de salário" + salarioPretendido );
+            System.out.println("o candidato " + candidato + " Solicitou este valor de salário" + salarioPretendido );
 
-             if(salarioBase > salarioPretendido) {
-                 System.out.println("O candidato " + candidato + " foi selecionado para a vaga");
-                 candidatosSelecionados++;
-             } else {
-                 System.out.println("O candidato " + candidato + " não foi selecionado para a vaga");
-             }
-             candidatosAtual++;
-         }
+            if(salarioBase > salarioPretendido) {
+                System.out.println("O candidato " + candidato + " foi selecionado para a vaga");
+                candidatosSelecionados++;
+            }
+//            else {
+//                System.out.println("O candidato " + candidato + " não foi selecionado para a vaga");
+//            }
+            candidatosAtual++;
+        }
     }
 
-     static Double valorAleatorio() {
+    static Double valorAleatorio() {
         return ThreadLocalRandom.current().nextDouble(1800, 2200);
     }
 }
