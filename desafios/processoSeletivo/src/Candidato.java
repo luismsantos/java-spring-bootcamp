@@ -7,6 +7,7 @@ public class Candidato {
 
     public void verificarSalario(double salario) {
 
+
         if (salario > baseSalarial) {
             System.out.println("LIGAR PARA CANDIDATO");
         } else if (salario == baseSalarial) {

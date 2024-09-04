@@ -9,3 +9,8 @@ Vamos imaginar que em um processo seletivo existe um valor base salarial de R$2.
 
 
 - Se não imprima **AGUARDANDO RESULTADO DEMAIS CANDIDATOS**
+---
+
+# Case 2: 
+
+Foi solicitado que nosso sistema garante que diante das inúmeras candidaturas sejam selecionados apenas no máximo 5 candidatos para entrevista onde o salário pretendido seja menor ou igual ao salário base.
