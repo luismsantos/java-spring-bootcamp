@@ -8,7 +8,9 @@ public class ProcessoSeletivo {
 
         Scanner sc = new Scanner(System.in);
         Locale.setDefault(Locale.US);
-        selecaoCanditados();
+        //selecaoCanditados();
+        imprimirSelecionados();
+
 //        Candidato candidato = new Candidato();
 //
 //        System.out.println("Digite o nome do candidato: ");
@@ -23,6 +25,21 @@ public class ProcessoSeletivo {
 //        candidato.verificarSalario(salario);
 //        System.out.println("Candidato: " + candidato.nome + ", Idade: " + candidato.idade);
 
+    }
+
+    static void imprimirSelecionados() {
+        String[] candidatos = {"FELIPE", "MARCIA", "JULIA", "PAULO", "JOAQUIM"};
+        System.out.println("Imprimindo a lista de candidatos informando o indice do elemento");
+
+        for(int indice = 0; indice < candidatos.length; indice++) {
+            System.out.println("O candidato de n " + (indice+1)  + " é " + candidatos[indice]);
+        }
+
+        System.out.println("Forma abrevida de interação for each");
+
+        for(String candidato : candidatos) {
+            System.out.println("O candidato selecionado foi " + candidato);
+        }
     }
 
     static void selecaoCanditados() {
